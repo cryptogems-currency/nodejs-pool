@@ -1,0 +1,13 @@
+[Unit]
+Description=CryptoGem Daemon
+After=network.target
+
+[Service]
+Type=forking
+GuessMainPID=no
+ExecStart=/usr/local/src/cryptogem/build/release/bin/cryptogemd --rpc-bind-ip 127.0.0.1 --detach --restricted-rpc
+Restart=always
+User=cryptogemdaemon
+
+[Install]
+WantedBy=multi-user.target
